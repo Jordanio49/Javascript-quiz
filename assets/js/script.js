@@ -55,31 +55,3 @@ let questions = [
        ]
     }
 ];
-
-var start = true;
-
-function iterate(qnum) {
-
-    //getting question and text
-    const question = document.getElementById("question");
-        question.innerText = Questions[qnum].question;
-
-    // getting answer options and providing text
-    const op1 = document.getElementById("op1");
-    const op2 = document.getElementById("op2");
-    const op3 = document.getElementById("op3");
-    const op4 = document.getElementById("op4");
-
-    op1.innerText = Questions[qnum].choices[0].text; 
-    op2.innerText = Questions[qnum].choices[1].text; 
-    op3.innerText = Questions[qnum].choices[2].text; 
-    op4.innerText = Questions[qnum].choices[3].text; 
-
-    // giving the options a true or false value
-    op1.value = Questions[qnum].choices[0].isCorrect;
-    op2.value = Questions[qnum].choices[1].isCorrect;
-    op3.value = Questions[qnum].choices[2].isCorrect;
-    op4.value = Questions[qnum].choices[3].isCorrect;
-
-    
-};
