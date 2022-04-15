@@ -7,35 +7,26 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="highscores">View Highscores</div>
-    <div class="timer">
-      <div class="time-left">Time Left</div>
-      <div class="seconds">60</div>
-    </div>
-    <div class="quiz-box">
-      <header>
-        <div class="title">Coding Quiz Challenge</div>
-        <div class=rules>
-          <p>
-            Answer all the questions within the time limit to recieve your score. Any incorrect answers will penalize your score/time by 10 seconds!
-          </p>
-        </div>
-      </header>
-      <div class="start">
-        <button class="start-btn">Start Quiz!</button>
-      </div>
-      <section>
-        <div class="Questions">
-          <!-- The questions will be inserted here from javascript -->
-        </div>
-        <div class="buttons" id="answers">
-          <!-- The answer choices will be inserted here from javascript -->
-        </div>
-      </section>
-      <footer>
-        <div class="validation"><!-- display correct or incorrect below questions--></div>
-      </footer>
+    <div id="highscores">View Highscores</div>
+      <div id="time-left">Time Left</div>
+      <div id="seconds"></div>
 
+     <div id="title">Coding Quiz Challenge</div>
+      <div id=rules>
+        <p>
+          Answer all the questions within the time limit to recieve your score. Any incorrect answers will penalize your score/time by 10 seconds!
+        </p>
+      </div>
+    </div>
+
+      <button id="start-btn">Start Quiz!</button>
+      
+      <div id="quizBox"> <!-- The questions will be inserted here from javascript --> 
+        <button class="button" id="next"> <!-- each answer will be a button that pulls up the next question --> </button>
+      </div>
+      
+      <div id="validate"> <!-- display correct or incorrect below questions--> </div>
+      
       <script src="./assets/js/script.js"></script>
   </body>
 </html> 
