@@ -7,7 +7,7 @@ const questions = [
     {
         question: "What does === compare in javascript?",
         choices: ["Type", "Value", "Type and value", "8 and D"],
-       answer: "Type and value"
+        answer: "Type and value"
     },
     {
         question:  "What is the index for the first element of an array?",
@@ -22,15 +22,32 @@ const questions = [
     {
         question: "How do you call a function named 'myFunction' in Javascript?",
         choices: ["myFunction()", "call myFunction", "myFunction=", "Hey you! myFunction!"],
-       answer: "myFunction()" 
+        answer: "myFunction()" 
     }
 ];
 
-const startButton = document.getElementById('start-btn')
+const quiz = document.getElementById('quiz-box');
+
+const intro = document.getElementById('intro-info');
+// get the start-btn element and add an event listener to call startQuiz function on click
+const startButton = document.getElementById('start-btn');
 startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-   
+
+    // removes displayed startButton and introInfo when start-btn is clicked
+    if (startButton.style.display === 'block') {
+        startButton.style.display = 'none'
+    };
+    if (intro.style.display === 'block'){
+        intro.style.display = 'none'
+    };
+    // displays hidden questions and choices when startButton is clicked
+    if(quiz.style.display === 'none'){
+        quiz.style.display = 'block'
+    };
+
+   // create a countdown clock that the user will be racing against to get a highscore
     function Timer() {
         // set count to start at 60
         var counter = 60;
