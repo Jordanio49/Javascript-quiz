@@ -61,16 +61,33 @@ const questions = [
 
 startBtn.addEventListener('click', startQuiz);
 
-// function showSubmission() {
-//     for(let i = 0; i > questions[currentQuestion].choices.length - 1; i++) {
-//     if (quizBox.style.display = 'block') {
-//         quizBox.style.display = 'none'
-//     }
-//     if (submission.style.display = 'none'){
-//         submission.style.display = 'block'
-//     }
-// }
-// };
+function showSubmission() {
+    if (quizBox.style.display === 'block') {
+        quizBox.style.display = 'none'
+    }
+    if (submission.style.display === 'none') {
+        submission.style.display = 'block'
+    }
+
+    let scoreForm = document.createElement("form");
+    scoreForm.setAttribute('method', "post");
+    scoreForm.setAttribute('action', "submit.php");
+
+    let info = document.createElement("input");
+    info.setAttribute('type', "text");
+    info.setAttribute('name', "username");
+
+    let submit = document.createElement("input");
+    submit.setAttribute('type', "submit");
+    submit.setAttribute('value', "Submit");
+
+    scoreForm.appendChild(info);
+    scoreForm.appendChild(submit);
+
+    document.getElementById('submission').appendChild(scoreForm)
+
+    localStorage.setItem('scores', info.textContent)
+};
 
 function NextQuestion() {
     document.getElementById('answers').innerHTML = ""
@@ -88,19 +105,24 @@ function NextQuestion() {
 };
 
 function checkTrue(e) {
-    console.log(e.target.textContent)
     let userSelection = e.target.textContent
 
     let correctAnswer = questions[currentQuestion].choices.find(function (question) {
         return question.option === userSelection
     })
-    console.log(correctAnswer);
 
     if (!correctAnswer.answer) {
         counter -= 10;
     }
     currentQuestion++;
-    NextQuestion();
+
+    if (currentQuestion < questions.length) {
+        NextQuestion();
+    }
+    else {
+        showSubmission();
+    }
+
 };
 
 function startQuiz() {
@@ -125,9 +147,16 @@ function startQuiz() {
             //get the element and fill the html with the counter
             document.getElementById('seconds').innerHTML = counter;
             // counting down 1000 milliseconds at a time
-            counter--;
-            // at 0 seconds stop counting down
-            if (counter < 0) {
+            // counter--;
+            // // at 0 seconds stop counting down
+            if (counter === 0) {
+                clearInterval(myTimer);
+                showSubmission();
+            }
+            if (currentQuestion < questions.length) {
+                counter--;
+            }
+            else {
                 clearInterval(myTimer);
             }
         }, 1000);
