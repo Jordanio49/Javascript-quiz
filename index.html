@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div id="highscores">View Highscores</div>
-      <div id="time-left">Time Left</div>
-      <div id="seconds"></div>
-   
-      <div id="intro-info" style="display: block">
-     <div id="title">Coding Quiz Challenge</div>
-      <div id=rules>
-        <p>
-          Answer all the questions within the time limit to recieve your score. Any incorrect answers will penalize your score/time by 10 seconds!
-        </p>
-      </div>
-    </div>
-  
 
-      <button id="start-btn" style="display: block">Start Quiz!</button>
-      
-    <div id="quiz-box" style="display: none">
-      <div id="question-title"></div>
-      <div id="answers"></div>
-    </div>
-      
-      <div id="submission" style="display: none"> <!-- display correct or incorrect below questions--> </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-      <script src="./assets/js/script.js"></script>
-  </body>
-</html> 
+<body>
+  <div id="highscores"><a href = "./HighScores.HTML">View Highscores</a></div>
+  <div id="time-left">Time Left</div>
+  <div id="seconds"></div>
+
+  <div id="intro-info" style="display: block">
+    <div id="title">Coding Quiz Challenge</div>
+    <div id=rules>
+      <p>
+        Answer all the questions within the time limit to recieve your score. Any incorrect answers will penalize your
+        score/time by 10 seconds!
+      </p>
+    </div>
+  </div>
+
+
+  <button id="start-btn" style="display: block">Start Quiz!</button>
+
+  <div id="quiz-box" style="display: none">
+    <div id="question-title"></div>
+    <div id="answers"></div>
+  </div>
+
+  <div id="submission" style="display: none">
+    <!-- display correct or incorrect below questions-->
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

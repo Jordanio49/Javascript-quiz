@@ -61,7 +61,7 @@ const questions = [
 
 startBtn.addEventListener('click', startQuiz);
 
-function showSubmission() {
+function showSubmission(textContent) {
     if (quizBox.style.display === 'block') {
         quizBox.style.display = 'none'
     }
@@ -71,7 +71,7 @@ function showSubmission() {
 
     let scoreForm = document.createElement("form");
     scoreForm.setAttribute('method', "post");
-    scoreForm.setAttribute('action', "submit.php");
+    scoreForm.setAttribute('action', "./HighScores.HTML");
 
     let info = document.createElement("input");
     info.setAttribute('type', "text");
@@ -86,10 +86,11 @@ function showSubmission() {
 
     document.getElementById('submission').appendChild(scoreForm)
 
-    submit.addEventListener('click',
-    window.localStorage.setItem('name', textContent)
-    )
-    console.log(localStorage)
+    submit.addEventListener(
+        'click',
+        window.localStorage.setItem('name', textContent),
+        );
+        console.log(textContent);
 };
 
 function NextQuestion() {
@@ -106,14 +107,15 @@ function NextQuestion() {
         optionBtn.addEventListener('click', checkTrue);
     }
 };
-
+// function called when the option buttons are clicked
 function checkTrue(e) {
+    // compares question.option to the user selection (the button they clicked)
     let userSelection = e.target.textContent
 
     let correctAnswer = questions[currentQuestion].choices.find(function (question) {
         return question.option === userSelection
     })
-
+    // If the answer is incorrect subtract 10 seconds and right or wrong go to the next question
     if (!correctAnswer.answer) {
         counter -= 10;
     }
@@ -130,16 +132,12 @@ function checkTrue(e) {
 
 function startQuiz() {
     // removes displayed startButton and introInfo when start-btn is clicked
-    if (startBtn.style.display === 'block') {
         startBtn.style.display = 'none'
-    };
-    if (intro.style.display === 'block') {
+
         intro.style.display = 'none'
-    };
     // displays hidden questions and choices when startButton is clicked
-    if (quizBox.style.display === 'none') {
+
         quizBox.style.display = 'block'
-    };
 
     currentQuestion = 0;
     NextQuestion();
