@@ -86,7 +86,10 @@ function showSubmission() {
 
     document.getElementById('submission').appendChild(scoreForm)
 
-    localStorage.setItem('scores', info.textContent)
+    submit.addEventListener('click',
+    window.localStorage.setItem('name', textContent)
+    )
+    console.log(localStorage)
 };
 
 function NextQuestion() {
