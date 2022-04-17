@@ -3,7 +3,8 @@ const questionTitle = document.getElementById('question-title')
 const quizBox = document.getElementById('quiz-box');
 const intro = document.getElementById('intro-info');
 const startBtn = document.getElementById('start-btn');
-const answers = document.getElementById('answers')
+const answers = document.getElementById('answers');
+const submission = document.getElementById('submission');
 
 let currentQuestion = 0;
 let score = 0;
@@ -60,6 +61,17 @@ const questions = [
 
 startBtn.addEventListener('click', startQuiz);
 
+// function showSubmission() {
+//     for(let i = 0; i > questions[currentQuestion].choices.length - 1; i++) {
+//     if (quizBox.style.display = 'block') {
+//         quizBox.style.display = 'none'
+//     }
+//     if (submission.style.display = 'none'){
+//         submission.style.display = 'block'
+//     }
+// }
+// };
+
 function NextQuestion() {
     document.getElementById('answers').innerHTML = ""
     questionTitle.innerHTML = questions[currentQuestion].question;
@@ -69,7 +81,7 @@ function NextQuestion() {
         let optionBtn = document.createElement("button");
         document.getElementById('answers').appendChild(optionBtn);
         optionBtn.textContent = questions[currentQuestion].choices[i].option;
-        
+
         // add eventlisteners for a click on any of the 4 buttons
         optionBtn.addEventListener('click', checkTrue);
     }
