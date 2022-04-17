@@ -26,3 +26,6 @@
 
 ## **Link to Page and Repository**
 
+Page: https://jordanio49.github.io/Javascript-quiz/
+
+Repository: https://github.com/Jordanio49/Javascript-quiz

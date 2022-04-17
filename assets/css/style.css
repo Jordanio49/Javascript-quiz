@@ -26,3 +26,9 @@
     flex-wrap: wrap;
     justify-content: flex-end;
 }
+
+#optionBtn {
+    display: block;
+    background-color: var(--color1);
+    font: var(--color3)
+}
